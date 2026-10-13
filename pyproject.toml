@@ -1,0 +1,21 @@
+[build-system]
+requires = ["hatchling>=1.26,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "recallscout"
+version = "0.1.0"
+description = "Local second-pass review for missed qualitative passages"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+dependencies = ["sentence-transformers>=5,<6", "socksio>=1,<2"]
+
+[project.optional-dependencies]
+test = ["pytest>=8,<10"]
+
+[project.scripts]
+recallscout = "recallscout.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/recallscout"]
